@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProfileModel;
+use Facade\FlareClient\Http\Client;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
+
 
 class MainController extends Controller
 {
@@ -35,4 +38,16 @@ class MainController extends Controller
 
         return redirect()->route('post');
     }
+
+    public function get_post_id($id)
+    {
+       $post = ProfileModel::find($id);
+
+       if($post == null){
+           return response(['message' => 'Post not found']  , 200);
+       }
+
+       return view('detail')->with(['post' => $post]);
+    }
+
 }

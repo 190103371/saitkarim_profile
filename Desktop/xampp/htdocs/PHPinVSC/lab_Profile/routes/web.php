@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MainController;
+use App\Models\Blog;
+use Illuminate\Support\Facades\DB;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +27,51 @@ Route::get('/hobbies', 'App\Http\Controllers\MainController@hobbies');
 
 Route::get('/post', 'App\Http\Controllers\MainController@post')->name('post');
 
+Route::get('/post/add', function(){
+    DB::table('Profile_Models')->insert([
+        'title' => 'About myself',
+        'body' => 'My name is Mukhamedali'
+        ]);
+});
+
 Route::post('/post/check', 'App\Http\Controllers\MainController@post_check');
+
+Route::get('/post/{id}', [MainController::class, 'get_post_id']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
