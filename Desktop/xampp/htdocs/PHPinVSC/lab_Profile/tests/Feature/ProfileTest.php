@@ -20,9 +20,6 @@ class ProfileTest extends TestCase
         $response->assertStatus(200);
     }*/
 
-    public function title_min_ten(){
-       
-    }
 
     public function test_get_post_id(){
         $response =  $this->get('/post/5');
@@ -40,9 +37,7 @@ class ProfileTest extends TestCase
             'created' => true,
         ]);
     }*/
-    public function test_input(){
-       $test->assertArrayHasKey('post', )
-    }
+    
 
 
 }
