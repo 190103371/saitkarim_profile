@@ -26,8 +26,9 @@
     <h1>All your texts</h1>
     @foreach($posts as $el)
         <div class="alert alert-warning">
-            <h5>{{ $el->title }}</h5>
+            <h5>{{ $el->id}}. {{ $el->title }}</h5>
             <b>{{ $el->body }}</b>
+            
         </div>
     @endforeach
 @endsection

@@ -17,7 +17,7 @@ class CreateProfileModelsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
-            $table->timestamps();
+            $table->timestamps('Time');
         });
     }
 
