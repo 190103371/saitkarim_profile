@@ -6,6 +6,9 @@ use App\Models\ProfileModel;
 use Facade\FlareClient\Http\Client;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
+use App\Models\Acquaintance;
+use App\Mail\DemoEmail;
+use Illuminate\Support\Facades\Mail;
 
 
 class MainController extends Controller
@@ -21,7 +24,7 @@ class MainController extends Controller
     }
     public function post(){
         $posts = new ProfileModel();
-        return view('post', ['posts' => $posts->all()]); 
+        return view('post', ['posts' => $posts->all()]);
     }
 
     public function post_check(Request $post){
@@ -48,6 +51,16 @@ class MainController extends Controller
        }
 
        return view('detail')->with(['post' => $post]);
+    }
+
+    public function mailSend(){
+        $objDemo = new \stdClass();
+        $objDemo -> demo_one = 'Demo one value';
+        $objDemo -> demo_two = 'Demo two value';
+        $objDemo -> sender = 'Mukhamedali.Saitkarim';
+        $objDemo -> receiver = 'Mukhamedali.Saitkarim';
+
+        Mail::to("msaitkarim555@gmail.com")->send(new DemoEmail($objDemo));
     }
 
 }

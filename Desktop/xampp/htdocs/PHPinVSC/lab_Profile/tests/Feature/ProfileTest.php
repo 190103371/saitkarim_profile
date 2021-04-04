@@ -15,22 +15,22 @@ class ProfileTest extends TestCase
      *
      * @return void
      */
-  
+
 
     public function test_get_post_id(){
-        $response =  $this->get('/post/13');
+        $response =  $this->get('/post/1');
         $response -> assertStatus(200);
     }
-    
+
     public function test_get_post_response(){
-        $response1 =  $this->get('/post/13');
+        $response1 =  $this->get('/post/1');
         $response1 -> assertViewHas('post');
     }
     public function test_directory(){
         $this-> assertDirectoryDoesNotExist('C:/Users/User/Desktop/xampp/htdocs
         /PHPinVSC/lab_Profile/resources/views/Blog');
     }
-    
+
 
 
 }

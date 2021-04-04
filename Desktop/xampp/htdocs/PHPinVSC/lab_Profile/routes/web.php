@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MainController;
 use App\Models\Blog;
 use Illuminate\Support\Facades\DB;
+use App\Mail\DemoEmail;
 
 
 /*
@@ -28,7 +29,7 @@ Route::get('/hobbies', 'App\Http\Controllers\MainController@hobbies');
 Route::get('/post', 'App\Http\Controllers\MainController@post')->name('post');
 
 Route::get('/post/add', function(){
-    DB::table('Profile_Models')->insert([
+    DB::table('profile')->insert([
         'title' => 'About myself',
         'body' => 'My name is Mukhamedali'
         ]);
@@ -37,6 +38,15 @@ Route::get('/post/add', function(){
 Route::post('/post/check', 'App\Http\Controllers\MainController@post_check');
 
 Route::get('/post/{id}', [MainController::class, 'get_post_id']);
+
+Route::get('/acquaintance', 'App\Http\Controllers\AcquaintanceController@index')->name('acquaintance');
+
+Route::post('/acquaintance/store', 'App\Http\Controllers\AcquaintanceController@acquaintance_store')->name('acquaintance_store');
+
+Route::get('/demo/mail_send', 'App\Http\Controllers\MainController@mail_send');
+
+
+
 
 
 
